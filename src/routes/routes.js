@@ -33,19 +33,13 @@ const appRouter = (app) => {
     });
 
     app.post("/user", (req, res) => {
-        User.find(req.body).then(userData => {
-            if (userData.length === 0) {
-                let user = new User(req.body);
-                user.save().then(doc => {
-                    res.status(200).send(doc);
-                }, e => {
-                    res.status(400).send(e);
-                });
-            } else {
-                res.status(200).send("User Name Is Taken. Please Try Another!");
-            }
+        let user = new User(req.body);
+        user.save().then(doc => {
+            return res.status(200).send(doc);
+        }, e => {
+            return res.status(400).send("User Name Is Taken. Please Try Another!");
         }).catch(e => {
-            res.status(500).send(e);
+            return res.status(500).send(e);
         });
     });
 
