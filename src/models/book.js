@@ -10,11 +10,23 @@ let Book = mongoose.model('Book', {
         type: String,
         required: true,
     },
-    release_year: {
-        type: Number,
+    description: {
+        type: String,
         required: true,
     },
-    category: {
+    isbn: {
+        type: String,
+        required: true,
+    },
+    author: {
+        type: String,
+        required: true,
+    },
+    publication_date: {
+        type: String,
+        required: true,
+    },
+    genre: {
         type: String,
         required: true,
     },

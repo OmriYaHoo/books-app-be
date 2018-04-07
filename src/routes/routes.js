@@ -5,9 +5,14 @@ const _ = require('lodash');
 const {mongoose} = require('../db/mongoose');
 const {User} = require('../models/user');
 const {Book} = require('../models/book');
+const mongoMorgan = require('mongo-morgan');
 
 
 const appRouter = (app) => {
+
+    app.use(mongoMorgan(process.env.MONGODB_URI || 'mongodb://localhost:27017/Desktop', 'combined', {
+        collection: 'logsRequests'
+    }));
 
     let handleError = (res, err) => {
         res.status(400).send(err);
