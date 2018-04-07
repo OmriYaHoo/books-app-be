@@ -6,7 +6,7 @@
   "scripts": {
     "test": "mocha ./src/**/*.test.js --timeout 5000",
     "test-watch": "nodemon --exec \"npm test\"",
-    "start": "nodemon app.js"
+    "start": "node app.js"
   },
   "engines": {
     "node": "9.8.0"
